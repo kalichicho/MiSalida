@@ -1,41 +1,36 @@
-# MiSalida
+# MiSalida Nuevo
 
-Este repositorio es una prueba para experimentar con Git. El objetivo es tener un README basico en espanol.
+Este repositorio ahora parte desde cero con un ejemplo muy básico en PHP usando Tailwind CSS.
 
-## Contenido
+## Estructura
 
-- `README.md`: Este archivo.
+- `public/index.php`: Página de inicio con Tailwind desde CDN.
 
-## Uso
+## Requisitos
 
-Clona el repositorio y revisa el contenido para hacer pruebas.
+- PHP 8 o superior.
+- (Opcional) Node.js si se desea compilar Tailwind localmente.
+- Una base de datos MySQL.
 
+## Preparación
 
-## Estructura de la web
-
-El proyecto ahora incluye una aplicación basada en Laravel dentro de la carpeta `laravel_app`. Allí encontrarás un ejemplo sencillo de MVC con autenticación básica y un CRUD de anuncios.
-
-Para preparar el entorno:
-
-```bash
-cd laravel_app
-composer install
-cp .env.example .env
-php artisan key:generate
-```
-
-Configura en `.env` los datos de conexión a MySQL (puedes usar phpMyAdmin de XAMPP). Luego ejecuta las migraciones:
-
-```bash
-php artisan migrate
-```
-
-Finalmente levanta el servidor de desarrollo:
+1. Crea una base de datos llamada `mi_salida_db` en tu servidor MySQL.
+2. Clona el repositorio y coloca los archivos dentro de tu servidor local.
+3. Ejecuta el servidor incorporado de PHP:
 
 ```bash
 php -S localhost:8000 -t public
 ```
 
-La carpeta `web` conserva un ejemplo previo con Next.js por si se quiere consultar.
+Esto levantará la aplicación en [http://localhost:8000](http://localhost:8000).
 
+## Compilación opcional de Tailwind
 
+Si deseas personalizar Tailwind, instala las dependencias y compila el CSS:
+
+```bash
+npm install tailwindcss
+npx tailwindcss -i ./src/input.css -o ./public/css/styles.css --watch
+```
+
+Luego enlaza `public/css/styles.css` en `index.php` en lugar del CDN.
